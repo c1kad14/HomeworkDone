@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "448219486460",
+    "firebase_url": "https://hello-firebase-7f74e.firebaseio.com",
+    "project_id": "hello-firebase-7f74e",
+    "storage_bucket": "hello-firebase-7f74e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448219486460:android:0031de2c394574ed",
+        "android_client_info": {
+          "package_name": "done.homework.com.homeworkdone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448219486460-aq3r7bs16qrje1b3lolbg30fq0f8lmfc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSzO-ry0TuWYB_GFrqRXu3tNN2Xejxp-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448219486460-aq3r7bs16qrje1b3lolbg30fq0f8lmfc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
