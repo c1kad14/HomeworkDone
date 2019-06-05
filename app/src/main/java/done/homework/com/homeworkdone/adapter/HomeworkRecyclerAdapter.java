@@ -21,7 +21,6 @@ import done.homework.com.homeworkdone.messages.MessageViewHolder;
 
 public class HomeworkRecyclerAdapter extends FirebaseRecyclerAdapter<Homework, MessageViewHolder> {
 
-
     private static final String TAG = "HOMEWORK_RECYCLER_ADAPTER";
 
     /**

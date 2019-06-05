@@ -79,59 +79,65 @@ public class MainActivity extends AppCompatActivity {
             return;
         } else {
             currentUser = firebaseUser.getDisplayName();
-            FirebaseFirestore.getInstance().collection("homework").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                    if (task.isSuccessful()) {
-                        documents = new ArrayList<>();
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            documents.add(document);
-                            Log.d(TAG, document.getId() + " => " + document.getData());
-                        }
-                    } else {
-                        Log.w(TAG, "Error getting documents.", task.getException());
-                    }
-                }
-            });
+//            FirebaseFirestore.getInstance().collection("homework").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                @Override
+//                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                    if (task.isSuccessful()) {
+//                        documents = new ArrayList<>();
+//                        for (QueryDocumentSnapshot document : task.getResult()) {
+//                            documents.add(document);
+//                            Log.d(TAG, document.getId() + " => " + document.getData());
+//                        }
+//                    } else {
+//                        Log.w(TAG, "Error getting documents.", task.getException());
+//                    }
+//                }
+//            });
+
+
+            startActivity(new Intent(this, HomeworkConversationsActivity.class));
+            finish();
+            return;
         }
+//
+//        linearLayoutManager = new LinearLayoutManager(this);
+//        linearLayoutManager.setStackFromEnd(true);
+//
+//        FirebaseRecyclerOptions<Homework> options =
+//                new FirebaseRecyclerOptions.Builder<Homework>()
+//                        .setQuery(firebaseDatabaseReference.child(MESSAGES), new MessageSnapshotParser())
+//                        .build();
+//
+//        firebaseHomeworkAdapter = new HomeworkRecyclerAdapter(options);
+//        firebaseHomeworkAdapter.registerAdapterDataObserver(new HomeworkAdapterDataObserver(firebaseHomeworkAdapter, linearLayoutManager, messageRecyclerView));
+//
+//        messageRecyclerView.setLayoutManager(linearLayoutManager);
+//        messageRecyclerView.setAdapter(firebaseHomeworkAdapter);
+//
+//        sendMessageButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Homework message = new
+//                        Homework(messageEditText.getText().toString(),
+//                        currentUser,
+//                        null /* no image */);
+//                firebaseDatabaseReference.child(MESSAGES).push().setValue(message);
+//                messageEditText.setText(EMPTY);
+//            }
+//        });
+//
+//        messageEditText.addTextChangedListener(new MessageWatcher(sendMessageButton));
+//
+//        addMessageImageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+//                intent.addCategory(Intent.CATEGORY_OPENABLE);
+//                intent.setType("image/*");
+//                startActivityForResult(intent, IMAGE_REQUEST);
+//            }
+//        });
 
-        linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(true);
-
-        FirebaseRecyclerOptions<Homework> options =
-                new FirebaseRecyclerOptions.Builder<Homework>()
-                        .setQuery(firebaseDatabaseReference.child(MESSAGES), new MessageSnapshotParser())
-                        .build();
-
-        firebaseHomeworkAdapter = new HomeworkRecyclerAdapter(options);
-        firebaseHomeworkAdapter.registerAdapterDataObserver(new HomeworkAdapterDataObserver(firebaseHomeworkAdapter, linearLayoutManager, messageRecyclerView));
-
-        messageRecyclerView.setLayoutManager(linearLayoutManager);
-        messageRecyclerView.setAdapter(firebaseHomeworkAdapter);
-
-        sendMessageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Homework message = new
-                        Homework(messageEditText.getText().toString(),
-                        currentUser,
-                        null /* no image */);
-                firebaseDatabaseReference.child(MESSAGES).push().setValue(message);
-                messageEditText.setText(EMPTY);
-            }
-        });
-
-        messageEditText.addTextChangedListener(new MessageWatcher(sendMessageButton));
-
-        addMessageImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.setType("image/*");
-                startActivityForResult(intent, IMAGE_REQUEST);
-            }
-        });
     }
 
     @Override
