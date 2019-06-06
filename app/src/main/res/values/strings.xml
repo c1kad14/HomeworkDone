@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">HomewrokDone</string>
+	<string name="app_name">HomeworkDone</string>
 	<string name="welcome_msg">Welcome!</string>
 	<string name="sign_out">Sign Out</string>
 	<string name="contacts_permission_rationale">Access to account information is required to sign in.</string>
@@ -10,5 +10,6 @@
 	<string name="sign_in">Sign In</string>
 	<string name="sign_up">Sign Up</string>
 	<string name="fresh_config">Fresh Config</string>
+	<string name="date_button_set">Date</string>
 	<string name="cause_crash">Cause Crash</string>
 </resources>

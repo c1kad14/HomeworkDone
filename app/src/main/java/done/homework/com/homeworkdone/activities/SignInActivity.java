@@ -12,15 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.GoogleAuthProvider;
 import done.homework.com.homeworkdone.R;
 
 public class SignInActivity extends AppCompatActivity implements
@@ -91,7 +88,7 @@ public class SignInActivity extends AppCompatActivity implements
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(SignInActivity.this, "Successfully logged", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                    startActivity(new Intent(SignInActivity.this, GroupSubjectActivity.class));
 
                     finish();
                 } else {
@@ -103,7 +100,7 @@ public class SignInActivity extends AppCompatActivity implements
                                     if (task.isSuccessful()) {
                                         //display some message here
                                         Toast.makeText(SignInActivity.this, "Successfully registered", Toast.LENGTH_LONG).show();
-                                        startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                                        startActivity(new Intent(SignInActivity.this, GroupSubjectActivity.class));
 
                                     } else {
                                         //display some message here
