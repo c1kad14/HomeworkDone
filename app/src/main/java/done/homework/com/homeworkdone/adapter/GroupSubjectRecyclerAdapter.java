@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import done.homework.com.homeworkdone.R;
 import done.homework.com.homeworkdone.activities.HomeworkActivity;
 
@@ -17,7 +16,7 @@ public class GroupSubjectRecyclerAdapter extends RecyclerView.Adapter<GroupSubje
     private final boolean isTeacher;
     private String[] dataset;
 
-    public static class ConversationsViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
+    public static class ConversationsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private final boolean isTeacher;
         public TextView textView;
 
@@ -30,7 +29,6 @@ public class GroupSubjectRecyclerAdapter extends RecyclerView.Adapter<GroupSubje
 
         @Override
         public void onClick(View view) {
-            Toast.makeText(view.getContext(), "position: " + getLayoutPosition(), Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(view.getContext(), HomeworkActivity.class);
             Bundle b = new Bundle();
             b.putString("group_subject", textView.getText().toString());

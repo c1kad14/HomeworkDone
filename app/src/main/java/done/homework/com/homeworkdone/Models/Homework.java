@@ -4,25 +4,16 @@ public class Homework {
 
     private String id;
     private String text;
-    private String subject;
-    private String year;
-    private String imageUrl;
+    private String date;
+    private String sentBy;
 
     public Homework() {
     }
 
-    public Homework(String text, String name, String imageUrl) {
+    public Homework(String text, String date, String sentBy) {
         this.text = text;
-        this.subject = name;
-        this.imageUrl = imageUrl;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.date = date;
+        this.sentBy = sentBy;
     }
 
     public void setText(String text) {
@@ -33,27 +24,27 @@ public class Homework {
         return text;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getDate() {
+        return date;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getSentBy() {
+        return sentBy;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setSentBy(String sentBy) {
+        this.sentBy = sentBy;
     }
 
-    public String getYear() {
-        return year;
+    public String getId() {
+        return id;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setId(String id) {
+        this.id = id;
     }
 }

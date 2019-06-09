@@ -9,14 +9,12 @@ import done.homework.com.homeworkdone.R;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
     private TextView messageTextView;
-    private ImageView messageImageView;
     private TextView messengerTextView;
     private CircleImageView messengerImageView;
 
     public MessageViewHolder(View v) {
         super(v);
         messageTextView = itemView.findViewById(R.id.messageTextView);
-        messageImageView = itemView.findViewById(R.id.messageImageView);
         messengerTextView = itemView.findViewById(R.id.messengerTextView);
         messengerImageView = itemView.findViewById(R.id.messengerImageView);
     }
@@ -27,14 +25,6 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
 
     public void setMessageTextView(TextView messageTextView) {
         this.messageTextView = messageTextView;
-    }
-
-    public ImageView getMessageImageView() {
-        return messageImageView;
-    }
-
-    public void setMessageImageView(ImageView messageImageView) {
-        this.messageImageView = messageImageView;
     }
 
     public TextView getMessengerTextView() {

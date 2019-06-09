@@ -6,9 +6,11 @@ import android.widget.Button;
 
 public class MessageWatcher implements TextWatcher {
     private Button sendMessageButton;
+    private Button setDateButton;
 
-    public MessageWatcher(Button sendMessageButton) {
+    public MessageWatcher(Button sendMessageButton, Button setDateButton) {
         this.sendMessageButton = sendMessageButton;
+        this.setDateButton = setDateButton;
     }
 
     @Override
@@ -18,7 +20,7 @@ public class MessageWatcher implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (s.toString().trim().length() > 0) {
+        if (s.toString().trim().length() > 0 && !setDateButton.getText().equals("Date")) {
             sendMessageButton.setEnabled(true);
         } else {
             sendMessageButton.setEnabled(false);

@@ -29,14 +29,16 @@ import done.homework.com.homeworkdone.messages.MessageSnapshotParser;
 import done.homework.com.homeworkdone.messages.MessageViewHolder;
 import done.homework.com.homeworkdone.messages.MessageWatcher;
 
+import java.util.Calendar;
+
 public class HomeworkActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
-    private static final String TAG = "SUBJECT_HOMEWORK";
+    private static final String TAG = "HOMEWORK";
     private static final String EMPTY = "";
     private String subject_group = "messages";
     private boolean isTeacher = false;
 
     private Button sendMessageButton;
-    public Button selectDateTimeButton;
+    public Button selectDateButton;
     private RecyclerView messageRecyclerView;
     private LinearLayoutManager linearLayoutManager;
     private EditText messageEditText;
@@ -57,11 +59,11 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
         messageRecyclerView = findViewById(R.id.messageRecyclerView);
         messageEditText = findViewById(R.id.messageEditText);
         sendMessageButton = findViewById(R.id.sendButton);
-        selectDateTimeButton = findViewById(R.id.selectDateTimeButton);
+        selectDateButton = findViewById(R.id.selectDateTimeButton);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
-        currentUser = firebaseUser.getDisplayName();
+        currentUser = firebaseUser.getEmail();
 
         firebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -91,17 +93,19 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
 
         sendMessageButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                String time = calendar.getTime().toString();
                 Homework message = new
-                        Homework(messageEditText.getText().toString(),
-                        currentUser,
-                        null /* no image */);
+                        Homework(String.format("Homework for %s: %s", selectDateButton.getText(),
+                        messageEditText.getText().toString()), time, currentUser);
                 firebaseDatabaseReference.child(subject_group).push().setValue(message);
                 messageEditText.setText(EMPTY);
+                selectDateButton.setText("Date");
             }
         });
 
-        messageEditText.addTextChangedListener(new MessageWatcher(sendMessageButton));
+        messageEditText.addTextChangedListener(new MessageWatcher(sendMessageButton, selectDateButton));
     }
 
     @Override
@@ -158,7 +162,7 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-        selectDateTimeButton.setText(new StringBuilder().append(dayOfMonth).append("/")
+        selectDateButton.setText(new StringBuilder().append(dayOfMonth).append("/")
                 .append(month).append("/").append(year).toString());
     }
 }
