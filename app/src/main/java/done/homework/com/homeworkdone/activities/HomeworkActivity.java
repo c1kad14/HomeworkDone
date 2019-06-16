@@ -20,14 +20,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import done.homework.com.homeworkdone.DateDialog;
-import done.homework.com.homeworkdone.Models.Homework;
+import done.homework.com.homeworkdone.dialogs.DateDialog;
+import done.homework.com.homeworkdone.models.Homework;
 import done.homework.com.homeworkdone.R;
-import done.homework.com.homeworkdone.adapter.HomeworkAdapterDataObserver;
-import done.homework.com.homeworkdone.adapter.HomeworkRecyclerAdapter;
-import done.homework.com.homeworkdone.messages.MessageSnapshotParser;
-import done.homework.com.homeworkdone.messages.MessageViewHolder;
-import done.homework.com.homeworkdone.messages.MessageWatcher;
+import done.homework.com.homeworkdone.data.HomeworkAdapterDataObserver;
+import done.homework.com.homeworkdone.adapters.HomeworkRecyclerAdapter;
+import done.homework.com.homeworkdone.messages.HomeworkMessageSnapshotParser;
+import done.homework.com.homeworkdone.messages.HomeworkMessageViewHolder;
+import done.homework.com.homeworkdone.messages.HomeworkMessageWatcher;
 
 import java.util.Calendar;
 
@@ -48,7 +48,7 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
     private FirebaseAuth firebaseAuth;
     private FirebaseUser firebaseUser;
     private DatabaseReference firebaseDatabaseReference;
-    private FirebaseRecyclerAdapter<Homework, MessageViewHolder>
+    private FirebaseRecyclerAdapter<Homework, HomeworkMessageViewHolder>
             firebaseHomeworkAdapter;
 
     @Override
@@ -82,7 +82,7 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
 
         FirebaseRecyclerOptions<Homework> options =
                 new FirebaseRecyclerOptions.Builder<Homework>()
-                        .setQuery(firebaseDatabaseReference.child(subject_group), new MessageSnapshotParser())
+                        .setQuery(firebaseDatabaseReference.child(subject_group), new HomeworkMessageSnapshotParser())
                         .build();
 
         firebaseHomeworkAdapter = new HomeworkRecyclerAdapter(options);
@@ -105,7 +105,7 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
             }
         });
 
-        messageEditText.addTextChangedListener(new MessageWatcher(sendMessageButton, selectDateButton));
+        messageEditText.addTextChangedListener(new HomeworkMessageWatcher(sendMessageButton, selectDateButton));
     }
 
     @Override

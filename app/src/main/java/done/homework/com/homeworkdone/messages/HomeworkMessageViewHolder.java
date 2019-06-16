@@ -7,12 +7,12 @@ import android.widget.TextView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import done.homework.com.homeworkdone.R;
 
-public class MessageViewHolder extends RecyclerView.ViewHolder {
+public class HomeworkMessageViewHolder extends RecyclerView.ViewHolder {
     private TextView messageTextView;
     private TextView messengerTextView;
     private CircleImageView messengerImageView;
 
-    public MessageViewHolder(View v) {
+    public HomeworkMessageViewHolder(View v) {
         super(v);
         messageTextView = itemView.findViewById(R.id.messageTextView);
         messengerTextView = itemView.findViewById(R.id.messengerTextView);

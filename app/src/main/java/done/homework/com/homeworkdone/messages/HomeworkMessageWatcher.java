@@ -4,11 +4,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
 
-public class MessageWatcher implements TextWatcher {
+public class HomeworkMessageWatcher implements TextWatcher {
     private Button sendMessageButton;
     private Button setDateButton;
 
-    public MessageWatcher(Button sendMessageButton, Button setDateButton) {
+    public HomeworkMessageWatcher(Button sendMessageButton, Button setDateButton) {
         this.sendMessageButton = sendMessageButton;
         this.setDateButton = setDateButton;
     }

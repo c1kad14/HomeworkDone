@@ -1,4 +1,4 @@
-package done.homework.com.homeworkdone.adapter;
+package done.homework.com.homeworkdone.adapters;
 
 import android.content.Intent;
 import android.os.Bundle;

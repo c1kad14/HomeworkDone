@@ -17,11 +17,11 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import done.homework.com.homeworkdone.Models.Group;
-import done.homework.com.homeworkdone.Models.Student;
-import done.homework.com.homeworkdone.Models.Subject;
+import done.homework.com.homeworkdone.models.Group;
+import done.homework.com.homeworkdone.models.Student;
+import done.homework.com.homeworkdone.models.Subject;
 import done.homework.com.homeworkdone.R;
-import done.homework.com.homeworkdone.adapter.GroupSubjectRecyclerAdapter;
+import done.homework.com.homeworkdone.adapters.GroupSubjectRecyclerAdapter;
 
 import java.util.*;
 

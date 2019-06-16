@@ -1,18 +1,18 @@
-package done.homework.com.homeworkdone.adapter;
+package done.homework.com.homeworkdone.data;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import done.homework.com.homeworkdone.Models.Homework;
-import done.homework.com.homeworkdone.messages.MessageViewHolder;
+import done.homework.com.homeworkdone.models.Homework;
+import done.homework.com.homeworkdone.messages.HomeworkMessageViewHolder;
 
 public class HomeworkAdapterDataObserver extends RecyclerView.AdapterDataObserver {
 
     private final LinearLayoutManager linearLayoutManager;
-    private FirebaseRecyclerAdapter<Homework, MessageViewHolder> firebaseAdapter;
+    private FirebaseRecyclerAdapter<Homework, HomeworkMessageViewHolder> firebaseAdapter;
     private RecyclerView messageRecyclerView;
 
-    public HomeworkAdapterDataObserver(FirebaseRecyclerAdapter<Homework, MessageViewHolder> firebaseAdapter,
+    public HomeworkAdapterDataObserver(FirebaseRecyclerAdapter<Homework, HomeworkMessageViewHolder> firebaseAdapter,
                                        LinearLayoutManager linearLayoutManager,
                                        RecyclerView messageRecyclerView) {
         this.firebaseAdapter = firebaseAdapter;

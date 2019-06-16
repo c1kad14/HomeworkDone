@@ -3,17 +3,17 @@ package done.homework.com.homeworkdone.messages;
 import android.support.annotation.NonNull;
 import com.firebase.ui.database.SnapshotParser;
 import com.google.firebase.database.DataSnapshot;
-import done.homework.com.homeworkdone.Models.Homework;
+import done.homework.com.homeworkdone.models.Homework;
 
-public class MessageSnapshotParser implements SnapshotParser<Homework> {
+public class HomeworkMessageSnapshotParser implements SnapshotParser<Homework> {
 
     @NonNull
     @Override
     public Homework parseSnapshot(@NonNull DataSnapshot snapshot) {
-        Homework message = snapshot.getValue(Homework.class);
-        if (message != null) {
-            message.setId(snapshot.getKey());
+        Homework homework = snapshot.getValue(Homework.class);
+        if (homework != null) {
+            homework.setId(snapshot.getKey());
         }
-        return message;
+        return homework;
     }
 }

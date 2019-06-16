@@ -1,4 +1,4 @@
-package done.homework.com.homeworkdone.Models;
+package done.homework.com.homeworkdone.models;
 
 public class Subject {
     private String teacherEmail;
