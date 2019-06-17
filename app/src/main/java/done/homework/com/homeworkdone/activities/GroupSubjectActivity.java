@@ -159,14 +159,14 @@ public class GroupSubjectActivity extends AppCompatActivity {
             if (isTeacher) {
                 for (Subject subject : group.getSubjects()) {
                     if (subject.getTeacherEmail().equals(currentUser)) {
-                        dataToDisplay.add(String.format("%s: %s", group.getName(), subject.getSubject()));
+                        dataToDisplay.add(String.format("%s | %s", group.getName(), subject.getSubject()));
                     }
                 }
             } else {
                 for (Student student : group.getStudents()) {
                     if (student.getParentEmail().equals(currentUser)) {
                         for (Subject subject : group.getSubjects()) {
-                            dataToDisplay.add(String.format("%s: %s", group.getName(), subject.getSubject()));
+                            dataToDisplay.add(String.format("%s | %s", group.getName(), subject.getSubject()));
                         }
                     }
                 }

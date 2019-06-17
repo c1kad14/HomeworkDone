@@ -71,6 +71,8 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
         if (bundle != null) {
             subject_group = bundle.getString("group_subject");
             isTeacher = bundle.getBoolean("isTeacher");
+
+            setTitle(subject_group);
         }
 
         if (!isTeacher) {
@@ -101,11 +103,12 @@ public class HomeworkActivity extends AppCompatActivity implements DatePickerDia
                         messageEditText.getText().toString()), time, currentUser);
                 firebaseDatabaseReference.child(subject_group).push().setValue(message);
                 messageEditText.setText(EMPTY);
-                selectDateButton.setText("Date");
+                selectDateButton.setText("DATE");
             }
         });
 
-        messageEditText.addTextChangedListener(new HomeworkMessageWatcher(sendMessageButton, selectDateButton));
+        messageEditText.addTextChangedListener(new HomeworkMessageWatcher(sendMessageButton, selectDateButton, messageEditText));
+        selectDateButton.addTextChangedListener(new HomeworkMessageWatcher(sendMessageButton, selectDateButton, messageEditText));
     }
 
     @Override

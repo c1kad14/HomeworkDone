@@ -2,7 +2,6 @@ package done.homework.com.homeworkdone.messages;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import done.homework.com.homeworkdone.R;

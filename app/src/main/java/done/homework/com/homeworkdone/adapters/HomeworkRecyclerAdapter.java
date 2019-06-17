@@ -39,6 +39,5 @@ public class HomeworkRecyclerAdapter extends FirebaseRecyclerAdapter<Homework, H
     public HomeworkMessageViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         return new HomeworkMessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false));
-
     }
 }

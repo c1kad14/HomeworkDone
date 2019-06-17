@@ -3,14 +3,17 @@ package done.homework.com.homeworkdone.messages;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class HomeworkMessageWatcher implements TextWatcher {
     private Button sendMessageButton;
     private Button setDateButton;
+    private TextView textView;
 
-    public HomeworkMessageWatcher(Button sendMessageButton, Button setDateButton) {
+    public HomeworkMessageWatcher(Button sendMessageButton, Button setDateButton, TextView textView) {
         this.sendMessageButton = sendMessageButton;
         this.setDateButton = setDateButton;
+        this.textView = textView;
     }
 
     @Override
@@ -20,7 +23,7 @@ public class HomeworkMessageWatcher implements TextWatcher {
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (s.toString().trim().length() > 0 && !setDateButton.getText().equals("Date")) {
+        if (!setDateButton.getText().equals("Date") && textView.getText().length() > 0) {
             sendMessageButton.setEnabled(true);
         } else {
             sendMessageButton.setEnabled(false);
